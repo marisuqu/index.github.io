@@ -1,0 +1,251 @@
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ELF-MAQUILLAJE</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #fff0f5;
+      color: #333;
+    }
+
+    header {
+      background-color: #f8bbd0;
+      color: #4a4a4a;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .carousel {
+      overflow-x: auto;
+      white-space: nowrap;
+      background-color: #fde4ec;
+      padding: 10px 0;
+    }
+
+    .carousel-track {
+      display: inline-flex;
+      gap: 10px;
+      padding: 0 10px;
+    }
+
+    .carousel img {
+      height: 100px;
+      width: auto;
+      border-radius: 10px;
+      transition: transform 0.3s;
+    }
+
+    .carousel img:hover {
+      transform: scale(1.05);
+    }
+
+    nav {
+      background-color: #f8bbd0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      padding: 15px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #4a4a4a;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #880e4f;
+    }
+
+    section {
+      padding: 40px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    h2 {
+      text-align: center;
+      color: #c2185b;
+    }
+
+    .producto {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 20px;
+    }
+
+    .item {
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      width: 100%;
+      max-width: 250px;
+      text-align: center;
+      padding: 15px;
+      transition: transform 0.3s;
+    }
+
+    .item:hover {
+      transform: scale(1.05);
+    }
+
+    .item img {
+      width: 100%;
+      border-radius: 8px;
+    }
+
+    footer {
+      background-color: #f8bbd0;
+      color: #4a4a4a;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
+
+    @media (min-width: 600px) {
+      nav {
+        gap: 30px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .carousel img {
+        height: 80px;
+      }
+
+      nav {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      section {
+        padding: 30px 10px;
+      }
+
+      .producto {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .item {
+        width: 90%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>MAQUILLAJE</h1>
+  <p>Lo mejor de maquillaje Elf, Bissu, Brochas, Esponjas todo lo q necesitas.</p>
+</header>
+
+<div class="carousel">
+  <div class="carousel-track">
+    <a href="https://sephora.com.mx/categories/marcas/e.l.f.-cosmetics">
+      <img src="M.jpeg" alt="Maquillaje">
+    </a>
+    <a href="https://theblankletter.com/pretty/elf/">
+      <img src="In.jpeg" alt="Inicio">
+    </a>
+    <a href="https://www.uhlala.mx/collections/e-l-f-cosmetics/">
+      <img src="Coo.jpeg" alt="Costo">
+    </a>
+    <a href="https://www.elfcosmetics.com/contact-us/">
+      <img src="C.jpeg" alt="Contacto">
+    </a>
+  </div>
+</div>
+
+<nav>
+  <a href="#bases">Bases</a>
+  <a href="#sombras">Sombras</a>
+  <a href="#labiales">Labiales</a>
+  <a href="#accesorios">Accesorios</a>
+</nav>
+
+<section id="bases">
+  <h2>Bases de Maquillaje</h2>
+  <div class="producto">
+    <div class="item">
+      <img src="Mat.jpeg" alt="Base 1">
+      <h3>Base Mate</h3>
+      <p>Cobertura completa y acabado sin brillo.</p>
+    </div>
+    <div class="item">
+      <img src="Hid.jpeg" alt="Base 2">
+      <h3>Base Hidratante</h3>
+      <p>Perfecta para pieles secas, con acabado natural.</p>
+    </div>
+  </div>
+</section>
+
+<section id="sombras">
+  <h2>Sombras de Ojos</h2>
+  <div class="producto">
+    <div class="item">
+      <img src="Nu.jpeg" alt="Sombras 1">
+      <h3>Paleta Nude</h3>
+      <p>Colores neutros para looks diarios.</p>
+    </div>
+    <div class="item">
+      <img src="Gla.jpeg" alt="Sombras 2">
+      <h3>Paleta Glam</h3>
+      <p>Tonos brillantes para ocasiones especiales.</p>
+    </div>
+  </div>
+</section>
+
+<section id="labiales">
+  <h2>Labiales</h2>
+  <div class="producto">
+    <div class="item">
+      <img src="Mate.jpeg" alt="Labial 1">
+      <h3>Labial Mate</h3>
+      <p>Duración de hasta 12 horas sin resecar.</p>
+    </div>
+    <div class="item">
+      <img src="Glo.jpeg" alt="Labial 2">
+      <h3>Gloss Brillante</h3>
+      <p>Acabado luminoso y textura ligera.</p>
+    </div>
+  </div>
+</section>
+
+<section id="accesorios">
+  <h2>Accesorios</h2>
+  <div class="producto">
+    <div class="item">
+      <img src="Bro.jpeg" alt="Brochas">
+      <h3>Set de Brochas</h3>
+      <p>Incluye 10 brochas para rostro y ojos.</p>
+    </div>
+    <div class="item">
+      <img src="Bob.jpeg" alt="Esponjas">
+      <h3>Esponjas de Maquillaje</h3>
+      <p>Aplicación perfecta y uniforme.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>&copy;Visita mi pagina de maquillaje 2025.</p>
+</footer>
+
+</body>
+</html>
