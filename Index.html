@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Tienda de Maquillaje</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #ffe6f0;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #ff66b2;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    nav {
+      background-color: #ff99cc;
+      display: flex;
+      justify-content: center;
+      padding: 0.5rem;
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+    }
+
+    nav ul li {
+      position: relative;
+      margin: 0 1rem;
+      cursor: pointer;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+      padding: 0.5rem;
+      display: block;
+    }
+
+    nav ul li ul {
+      display: none;
+      position: absolute;
+      top: 2.5rem;
+      left: 0;
+      background-color: #ffcce6;
+      padding: 0.5rem;
+      border-radius: 0.5rem;
+    }
+
+    nav ul li:hover ul {
+      display: block;
+    }
+
+    nav ul li ul li a {
+      color: #ff3399;
+    }
+
+    .seccion {
+      display: none;
+      padding: 2rem;
+    }
+
+    #inicio {
+      display: block;
+      text-align: center;
+      color: #cc0066;
+      font-size: 1.2rem;
+    }
+
+    #inicio img {
+      margin-top: 1rem;
+      max-width: 100%;
+      border-radius: 1rem;
+      border: 4px solid #ff99cc;
+    }
+
+    #productos {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .producto {
+      margin: 1rem;
+      text-align: center;
+    }
+
+    .producto img {
+      width: 150px;
+      height: 150px;
+      border: 3px solid #ff99cc;
+      border-radius: 1rem;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+
+    .producto img:hover {
+      transform: scale(1.05);
+    }
+
+    .producto p {
+      margin-top: 0.5rem;
+      color: #cc0066;
+      font-weight: bold;
+    }
+
+    .botones-navegacion {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      margin-top: 1rem;
+    }
+
+    .botones-navegacion button {
+      padding: 0.5rem 1rem;
+      background-color: #ff66b2;
+      color: white;
+      border: none;
+      border-radius: 0.5rem;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .botones-navegacion button:hover {
+      background-color: #cc0066;
+    }
+  </style>
+</head>
+<body>
+  
+  <header>
+    <h1>Tienda de Maquillaje</h1>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="#" onclick="mostrarInicio()">Inicio</a></li>
+      <li>
+        <a href="#" onclick="mostrarProductos()">Productos</a>
+        <ul>
+          <li><a href="base.html">Base</a></li>
+          <li><a href="corrector.html">Corrector</a></li>
+          <li><a href="esponjas.html">Esponjas</a></li>
+          <li><a href="brochas.html">Brochas</a></li>
+          <li><a href="iluminador.html">Iluminador</a></li>
+          <li><a href="blush.html">Blush</a></li>
+        </ul>
+      </li>
+      <li><a href="detalles.html">Detalles</a></li>
+    </ul>
+  </nav>
+
+  <section id="inicio" class="seccion">
+    <h2>Bienvenida a nuestra tienda de maquillaje</h2>
+    <p>Descubre los mejores productos para resaltar tu belleza. Ofrecemos bases, brochas, iluminadores y mucho más. Haz clic en "Productos" para ver el catálogo.</p>
+    <img src="C.jpeg" alt="Maquillaje"> 
+  </section>
+
+  <section id="productos" class="seccion productos">
+    <div id="productoActual" class="producto">
+   
+    </div>
+    <div class="botones-navegacion">
+      <button onclick="productoAnterior()">Anterior</button>
+      <button onclick="productoSiguiente()">Siguiente</button>
+    </div>
+  </section>
+
+  <script>
+    const productos = [
+      { nombre: "Base", imagen: "Mat.jpeg", enlace: "base.html" },
+      { nombre: "Corrector", imagen: "Hid.jpeg", enlace: "corrector.html" },
+      { nombre: "Esponjas", imagen: "Bob.jpeg", enlace: "esponjas.html" },
+      { nombre: "Brochas", imagen: "Bro.jpeg", enlace: "brochas.html" },
+      { nombre: "Iluminador", imagen: "Nu.jpeg", enlace: "iluminador.html" },
+      { nombre: "Blush", imagen: "images.jpeg", enlace: "blush.html" }
+    ];
+
+    let indiceActual = 0;
+
+    function mostrarInicio() {
+      document.getElementById('inicio').style.display = 'block';
+      document.getElementById('productos').style.display = 'none';
+    }
+
+    function mostrarProductos() {
+      document.getElementById('inicio').style.display = 'none';
+      document.getElementById('productos').style.display = 'flex';
+      mostrarProducto(indiceActual);
+    }
+    function mostrarProducto(indice) {
+      const contenedor = document.getElementById('productoActual');
+      const producto = productos[indice];
+      contenedor.innerHTML = `
+        <a href="${producto.enlace}">
+          <img src="${producto.imagen}" alt="${producto.nombre}">
+        </a>
+        <p>${producto.nombre}</p>
+      `;
+    }
+
+    function productoAnterior() {
+      if (indiceActual > 0) {
+        indiceActual--;
+        mostrarProducto(indiceActual);
+      }
+    }
+
+    function productoSiguiente() {
+      if (indiceActual < productos.length - 1) {
+        indiceActual++;
+        mostrarProducto(indiceActual);
+      }
+    }
+  </script>
+
+</body>
+</html>
