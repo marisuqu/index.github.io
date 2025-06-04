@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Tienda de Maquillaje</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #fff0f5;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #db7093;
+      color: white;
+      padding: 1em;
+      text-align: center;
+    }
+
+    nav {
+      background-color: #f4a7b9;
+      padding: 1em;
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    nav ul li {
+      display: inline;
+      margin-right: 10px;
+      position: relative;
+    }
+
+    nav ul li ul {
+      display: none;
+      position: absolute;
+      background-color: #f8c6d8;
+      padding: 10px;
+      top: 100%;
+      left: 0;
+    }
+
+    nav ul li:hover ul {
+      display: block;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #fff;
+      font-weight: bold;
+    }
+
+    .seccion {
+      padding: 2em;
+      text-align: center;
+    }
+
+    .producto {
+      margin: 20px auto;
+      border: 2px solid #db7093;
+      border-radius: 10px;
+      padding: 20px;
+      max-width: 300px;
+      background-color: #fff;
+    }
+
+    .producto img {
+      max-width: 100%;
+      border-radius: 10px;
+    }
+
+    .botones-navegacion {
+      margin-top: 20px;
+    }
+
+    .botones-navegacion button,
+    .producto button {
+      background-color: #db7093;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      margin: 5px;
+      cursor: pointer;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+
+    .botones-navegacion button:hover,
+    .producto button:hover {
+      background-color: #c06085;
+    }
+
+    #carrito {
+      background-color: #ffe4e1;
+      border-top: 2px solid #db7093;
+    }
+
+    #carrito ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    #carrito li {
+      padding: 5px;
+    }
+
+    #carrito button {
+      margin-top: 10px;
+    }
+
+    img {
+      max-width: 300px;
+      border-radius: 15px;
+    }
+
+    .productos {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .producto-buttons {
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Tienda de Maquillaje</h1>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="#" onclick="mostrarInicio()">Inicio</a></li>
+      <li>
+        <a href="#" onclick="mostrarProductos()">Productos</a>
+        <ul>
+          <li><a href="#">Base</a></li>
+          <li><a href="#">Corrector</a></li>
+          <li><a href="#">Esponjas</a></li>
+          <li><a href="#">Brochas</a></li>
+          <li><a href="#">Iluminador</a></li>
+          <li><a href="#">Blush</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+
+  <section id="inicio" class="seccion">
+    <h2>Bienvenida a nuestra tienda de maquillaje</h2>
+    <p>Descubre los mejores productos para resaltar tu belleza. Ofrecemos bases, brochas, iluminadores y mucho más. Haz clic en "Productos" para ver el catálogo.</p>
+    <img src="C.jpeg" alt="Maquillaje"> 
+  </section>
+
+  <section id="productos" class="seccion productos">
+    <div id="productoActual" class="producto"></div>
+    <div class="botones-navegacion">
+      <button onclick="productoAnterior()">Anterior</button>
+      <button onclick="productoSiguiente()">Siguiente</button>
+    </div>
+  </section>
+
+  <section id="carrito" class="seccion">
+    <h3>Carrito de Compras</h3>
+    <ul id="listaCarrito"></ul>
+    <p><strong>Total: $<span id="total">0</span></strong></p>
+    <button onclick="borrarCuenta()">Borrar Cuenta</button>
+  </section>
+
+  <script>
+    const productos = [
+      { nombre: "Base", imagen: "Mat.jpeg", precio: 150 },
+      { nombre: "Corrector", imagen: "Hid.jpeg", precio: 100 },
+      { nombre: "Esponjas", imagen: "Bob.jpeg", precio: 50 },
+      { nombre: "Brochas", imagen: "Bro.jpeg", precio: 200 },
+      { nombre: "Iluminador", imagen: "Nu.jpeg", precio: 130 },
+      { nombre: "Blush", imagen: "images.jpeg", precio: 90 }
+    ];
+
+    let indiceActual = 0;
+    const carrito = [];
+
+    function mostrarInicio() {
+      document.getElementById('inicio').style.display = 'block';
+      document.getElementById('productos').style.display = 'none';
+      document.getElementById('carrito').style.display = 'none';
+    }
+
+    function mostrarProductos() {
+      document.getElementById('inicio').style.display = 'none';
+      document.getElementById('productos').style.display = 'flex';
+      document.getElementById('carrito').style.display = 'block';
+      mostrarProducto(indiceActual);
+    }
+
+    function mostrarProducto(indice) {
+      const contenedor = document.getElementById('productoActual');
+      const producto = productos[indice];
+      contenedor.innerHTML = `
+        <img src="${producto.imagen}" alt="${producto.nombre}">
+        <p><strong>${producto.nombre}</strong> - $${producto.precio}</p>
+        <div class="producto-buttons">
+          <button onclick="agregarAlCarrito(${indice})">Agregar al carrito</button>
+          <a href="detalles.html" target="_blank">
+            <button>Detalles</button>
+          </a>
+        </div>
+      `;
+    }
+
+    function productoAnterior() {
+      if (indiceActual > 0) {
+        indiceActual--;
+        mostrarProducto(indiceActual);
+      }
+    }
+
+    function productoSiguiente() {
+      if (indiceActual < productos.length - 1) {
+        indiceActual++;
+        mostrarProducto(indiceActual);
+      }
+    }
+
+    function agregarAlCarrito(indice) {
+      carrito.push(productos[indice]);
+      actualizarCarrito();
+    }
+
+    function actualizarCarrito() {
+      const lista = document.getElementById('listaCarrito');
+      const total = document.getElementById('total');
+      lista.innerHTML = '';
+      let suma = 0;
+      carrito.forEach((producto) => {
+        suma += producto.precio;
+        const li = document.createElement('li');
+        li.textContent = `${producto.nombre} - $${producto.precio}`;
+        lista.appendChild(li);
+      });
+      total.textContent = suma;
+    }
+
+    function borrarCuenta() {
+      if (confirm("¿Estás segura de que deseas borrar tu cuenta? Esto eliminará todo tu carrito.")) {
+        carrito.length = 0;
+        actualizarCarrito();
+        alert("Tu cuenta y carrito han sido eliminados. ¡Gracias por visitarnos!");
+      }
+    }
+
+    mostrarInicio();
+  </script>
+
+</body>
+</html>
