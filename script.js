@@ -118,6 +118,7 @@ function productoSiguiente() {
 function updateNavigationButtons() {
     const prevButton = document.querySelector('.botones-navegacion button:first-child');
     const nextButton = document.querySelector('.botones-navegacion button:last-child');
+
     prevButton.disabled = indiceActual === 0;
     nextButton.disabled = indiceActual === currentProducts.length - 1 || currentProducts.length === 0;
 }
@@ -184,19 +185,6 @@ document.getElementById('contact-form').addEventListener('submit', function (eve
     }
 });
 
-mostrarInicio();
-// ... (todo tu código anterior se mantiene igual) ...
-
-document.getElementById('contact-form').addEventListener('submit', function (event) {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(contactEmailInput.value)) {
-        event.preventDefault();
-        emailValidationError.style.display = 'block';
-        alert('Por favor, introduce un email válido para enviar el mensaje.');
-    }
-});
-
-// NUEVA LÓGICA PARA EL ENLACE DE FINALIZAR COMPRA
 const checkoutLink = document.getElementById('checkout-link');
 checkoutLink.addEventListener('click', function(event) {
     event.preventDefault();
@@ -209,6 +197,5 @@ checkoutLink.addEventListener('click', function(event) {
     localStorage.setItem('shoppingCart', JSON.stringify(carrito));
     window.location.href = 'checkout.html';
 });
-
 
 mostrarInicio();
