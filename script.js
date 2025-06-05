@@ -18,6 +18,7 @@ let carouselTimer;
 const slides = document.getElementsByClassName("carousel-slide");
 
 function updateCarouselView() {
+    if (slides.length === 0) return;
     const offset = -(slideIndex - 1) * 100;
     for (let i = 0; i < slides.length; i++) {
         slides[i].style.transform = `translateX(${offset}%)`;
@@ -33,6 +34,7 @@ function plusSlides(n) {
         slideIndex = slides.length;
     }
     updateCarouselView();
+    clearInterval(carouselTimer);
     startCarousel();
 }
 

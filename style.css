@@ -241,6 +241,7 @@ nav ul li ul li a:hover {
     max-width: 600px;
     position: relative;
     margin: auto;
+    margin-bottom: 20px;
     border: 2px solid #db7093;
     border-radius: 10px;
     overflow: hidden;
@@ -258,20 +259,13 @@ nav ul li ul li a:hover {
     vertical-align: middle;
 }
 
-.carousel-nav {
-    max-width: 600px;
-    margin: -10px auto 20px auto;
-    position: relative;
-    height: 0;
-}
-
 .prev, .next {
     cursor: pointer;
     position: absolute;
     top: 50%;
+    transform: translateY(-50%);
     width: auto;
     padding: 16px;
-    margin-top: -22px;
     color: white;
     font-weight: bold;
     font-size: 18px;
@@ -280,6 +274,11 @@ nav ul li ul li a:hover {
     user-select: none;
     background-color: rgba(219, 112, 147, 0.5);
     z-index: 2;
+}
+
+.prev {
+    left: 0;
+    border-radius: 0 3px 3px 0;
 }
 
 .next {
