@@ -375,3 +375,93 @@ nav ul li ul li a:hover {
         display: none;
     }
 }
+/* --- ESTILOS RESPONSIVOS PARA PANTALLAS PEQUEÑAS --- */
+@media (max-width: 768px) {
+
+    /* --- AJUSTES GENERALES --- */
+    body {
+        font-size: 16px;
+    }
+
+    h1 {
+        font-size: 1.8em;
+    }
+
+    h2 {
+        font-size: 1.5em;
+    }
+
+    .seccion {
+        padding: 1.5em 1em;
+    }
+
+
+    /* --- MENÚ DE NAVEGACIÓN RESPONSIVO --- */
+    nav ul li {
+        display: block;
+        margin: 0;
+        text-align: center;
+    }
+
+    nav ul li a {
+        padding: 12px 10px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    nav ul li ul {
+        position: static;
+        display: block;
+        background-color: rgba(0, 0, 0, 0.1);
+        padding: 0;
+        min-width: auto;
+        border-top: none;
+    }
+
+    nav ul li:hover ul {
+        display: block;
+    }
+
+    nav ul li ul li a {
+        color: #fff;
+        font-weight: normal;
+        font-size: 0.9em;
+        padding-left: 30px;
+        background-color: transparent;
+        border-bottom: none;
+    }
+
+    nav ul li ul li a:hover {
+        background-color: #c06085;
+    }
+
+
+    /* --- CARRITO RESPONSIVO --- */
+    #carrito li {
+        display: block;
+        text-align: center;
+        margin-right: 0;
+        margin-bottom: 8px;
+    }
+
+
+    /* --- PRODUCTOS Y CARRUSEL --- */
+    .producto, .carousel-container {
+        max-width: 95%; /* Ocupa casi todo el ancho disponible */
+    }
+
+
+    /* --- MODAL DE CONTACTO --- */
+    .contact-modal-content {
+        width: 90%;
+        margin: 15% auto;
+    }
+
+
+    /* --- BOTÓN FLOTANTE --- */
+    .contact-form-trigger-btn {
+        padding: 8px 15px;
+        font-size: 0.9em;
+        bottom: 10px;
+        right: 10px;
+    }
+}
