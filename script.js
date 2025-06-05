@@ -13,10 +13,41 @@ let currentProducts = [];
 let indiceActual = 0;
 const carrito = [];
 
+// --- LÓGICA DEL CARRUSEL ---
+let slideIndex = 0;
+let carouselTimer;
+
+function showSlides() {
+    let i;
+    let slides = document.getElementsByClassName("carousel-slide");
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+    }
+    slideIndex++;
+    if (slideIndex > slides.length) {slideIndex = 1}
+    slides[slideIndex-1].style.display = "block";
+    
+    // Cambia la imagen cada 4 segundos
+    carouselTimer = setTimeout(showSlides, 4000); 
+}
+
+function plusSlides(n) {
+    // Limpia el temporizador para evitar cambios dobles
+    clearTimeout(carouselTimer); 
+    // Muestra la diapositiva correcta
+    slideIndex += n -1;
+    showSlides();
+}
+// --- FIN DE LÓGICA DEL CARRUSEL ---
+
 function mostrarInicio() {
     document.getElementById('inicio').style.display = 'block';
     document.getElementById('productos').style.display = 'none';
-    // La línea que ocultaba el carrito ha sido eliminada
+    
+    // Inicia o reinicia el carrusel
+    clearTimeout(carouselTimer);
+    slideIndex = 0;
+    showSlides();
 }
 
 function mostrarProductos() {
@@ -24,9 +55,10 @@ function mostrarProductos() {
     indiceActual = 0;
     document.getElementById('inicio').style.display = 'none';
     document.getElementById('productos').style.display = 'flex';
-    // La línea que mostraba el carrito ha sido eliminada
     mostrarProducto(indiceActual);
     updateNavigationButtons();
+    // Detiene el carrusel cuando no está en la página de inicio
+    clearTimeout(carouselTimer);
 }
 
 function mostrarProductosPorCategoria(category) {
@@ -34,13 +66,14 @@ function mostrarProductosPorCategoria(category) {
     indiceActual = 0;
     document.getElementById('inicio').style.display = 'none';
     document.getElementById('productos').style.display = 'flex';
-    // La línea que mostraba el carrito ha sido eliminada
     if (currentProducts.length > 0) {
         mostrarProducto(indiceActual);
     } else {
         document.getElementById('productoActual').innerHTML = '<p>No hay productos en esta categoría.</p>';
     }
     updateNavigationButtons();
+    // Detiene el carrusel
+    clearTimeout(carouselTimer);
 }
 
 function mostrarProducto(indice) {
@@ -145,4 +178,5 @@ document.getElementById('contact-form').addEventListener('submit', function (eve
     }
 });
 
+// Llama a la función para mostrar la página de inicio (y el carrusel) cuando se carga la página
 mostrarInicio();

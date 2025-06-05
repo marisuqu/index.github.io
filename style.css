@@ -28,7 +28,7 @@ nav ul li {
     display: inline-block;
     margin-right: 10px;
     position: relative;
-    vertical-align: top; /* ARREGLO: Alinea los botones del menú */
+    vertical-align: top;
 }
 
 nav ul li ul {
@@ -74,11 +74,6 @@ nav ul li ul li a:hover {
     text-align: center;
 }
 
-#inicio img {
-    max-width: 300px;
-    border-radius: 15px;
-}
-
 .productos {
     display: none;
     flex-direction: column;
@@ -103,7 +98,6 @@ nav ul li ul li a:hover {
     margin-top: 10px;
 }
 
-/* ARREGLO: Quita el subrayado del enlace que contiene el botón "Detalles" */
 .producto-buttons a {
     text-decoration: none;
 }
@@ -131,11 +125,10 @@ nav ul li ul li a:hover {
     background-color: #c06085;
 }
 
-/* ARREGLO: El carrito ahora es visible siempre */
 #carrito {
     background-color: #ffe4e1;
     border-bottom: 2px solid #db7093;
-    padding: 1em 2em; /* Ajusta el padding para que se vea mejor */
+    padding: 1em 2em;
 }
 
 #carrito ul {
@@ -146,7 +139,7 @@ nav ul li ul li a:hover {
 
 #carrito li {
     padding: 5px;
-    display: inline-block; /* Muestra los items del carrito en línea */
+    display: inline-block;
     margin-right: 15px;
 }
 
@@ -242,4 +235,59 @@ nav ul li ul li a:hover {
     color: gray;
     display: block;
     text-align: right;
+}
+
+/* --- ESTILOS DEL CARRUSEL --- */
+.carousel-container {
+    max-width: 600px;
+    position: relative;
+    margin: auto;
+    margin-bottom: 20px;
+    border: 2px solid #db7093;
+    border-radius: 10px;
+    overflow: hidden; /* Oculta partes de la imagen que se salgan del borde redondeado */
+}
+
+.carousel-slide {
+    display: none;
+}
+
+.carousel-slide img {
+    width: 100%;
+    vertical-align: middle;
+}
+
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    background-color: rgba(219, 112, 147, 0.5);
+}
+
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.prev:hover, .next:hover {
+    background-color: rgba(219, 112, 147, 1);
+}
+
+.fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
 }
