@@ -1,238 +1,89 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Tienda de Maquillaje</title>
-  <link rel="stylesheet" href="style.css"> </head>
+    <meta charset="UTF-8">
+    <title>Tienda de Maquillaje</title>
+    <link rel="stylesheet" href="style.css">
+</head>
 <body>
 
-  <header>
-    <h1>Tienda de Maquillaje</h1>
-  </header>
+    <header>
+        <h1>Tienda de Maquillaje</h1>
+    </header>
 
-  <nav>
-    <ul>
-      <li><a href="#" onclick="mostrarInicio()">Inicio</a></li>
-      <li>
-        <a href="#" onclick="mostrarProductos()">Productos</a>
-        <ul>
-          <li><a href="#" onclick="mostrarProductosPorCategoria('Base')">Base</a></li>
-          <li><a href="#" onclick="mostrarProductosPorCategoria('Corrector')">Corrector</a></li>
-          <li><a href="#" onclick="mostrarProductosPorCategoria('Esponjas')">Esponjas</a></li>
-          <li><a href="#" onclick="mostrarProductosPorCategoria('Brochas')">Brochas</a></li>
-          <li><a href="#" onclick="mostrarProductosPorCategoria('Iluminador')">Iluminador</a></li>
-          <li><a href="#" onclick="mostrarProductosPorCategoria('Blush')">Blush</a></li>
-        </ul>
-      </li>
-    </ul>
-  </nav>
+    <nav>
+        <ul>
+            <li><a href="#" onclick="mostrarInicio()">Inicio</a></li>
+            <li>
+                <a href="#" onclick="mostrarProductos()">Productos</a>
+                <ul>
+                    <li><a href="#" onclick="mostrarProductosPorCategoria('Base')">Base</a></li>
+                    <li><a href="#" onclick="mostrarProductosPorCategoria('Corrector')">Corrector</a></li>
+                    <li><a href="#" onclick="mostrarProductosPorCategoria('Esponjas')">Esponjas</a></li>
+                    <li><a href="#" onclick="mostrarProductosPorCategoria('Brochas')">Brochas</a></li>
+                    <li><a href="#" onclick="mostrarProductosPorCategoria('Iluminador')">Iluminador</a></li>
+                    <li><a href="#" onclick="mostrarProductosPorCategoria('Blush')">Blush</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
 
-  <section id="inicio" class="seccion">
-    <h2>Bienvenida a nuestra tienda de maquillaje</h2>
-    <p>Descubre los mejores productos para resaltar tu belleza. Ofrecemos bases, brochas, iluminadores y mucho más. Haz clic en "Productos" para ver el catálogo.</p>
-    <img src="C.jpeg" alt="Maquillaje"> 
-  </section>
+    <section id="inicio" class="seccion">
+        <h2>Bienvenida a nuestra tienda de maquillaje</h2>
+        <p>Descubre los mejores productos para resaltar tu belleza. Ofrecemos bases, brochas, iluminadores y mucho más. Haz clic en "Productos" para ver el catálogo.</p>
+        <img src="C.jpeg" alt="Maquillaje">
+    </section>
 
-  <section id="productos" class="seccion productos">
-    <div id="productoActual" class="producto"></div>
-    <div class="botones-navegacion">
-      <button onclick="productoAnterior()">Anterior</button>
-      <button onclick="productoSiguiente()">Siguiente</button>
-    </div>
-  </section>
+    <section id="productos" class="seccion productos">
+        <div id="productoActual" class="producto"></div>
+        <div class="botones-navegacion">
+            <button onclick="productoAnterior()">Anterior</button>
+            <button onclick="productoSiguiente()">Siguiente</button>
+        </div>
+    </section>
 
-  <section id="carrito" class="seccion">
-    <h3>Carrito de Compras</h3>
-    <ul id="listaCarrito"></ul>
-    <p><strong>Total: $<span id="total">0</span></strong></p>
-    <button onclick="borrarCuenta()">Borrar Cuenta</button>
-  </section>
+    <section id="carrito" class="seccion">
+        <h3>Carrito de Compras</h3>
+        <ul id="listaCarrito"></ul>
+        <p><strong>Total: $<span id="total">0</span></strong></p>
+        <button onclick="borrarCuenta()">Borrar Cuenta</button>
+    </section>
 
-  <button id="open-contact-form-btn" class="contact-form-trigger-btn">
-    📩 Envíame un Mensaje
-  </button>
+    <button id="open-contact-form-btn" class="contact-form-trigger-btn">
+        📩 Envíame un Mensaje
+    </button>
 
-  <div id="contact-form-modal" class="contact-modal">
-    <div class="contact-modal-content">
-      <span class="close-contact-modal" id="close-contact-modal-btn">×</span>
-      <h2>Contáctame</h2>
-      <p>Envíame un mensaje y te responderé lo antes posible.</p>
-      <form id="contact-form" target="_blank" action="https://formsubmit.co/marycarmenvazquez2008@gmail.com" method="POST">
-        <div class="form-group">
-          <label for="contact-name">Nombre Completo:</label>
-          <input type="text" id="contact-name" name="name" required maxlength="100">
-        </div>
-        <div class="form-group">
-          <label for="contact-email">Tu Email:</label>
-          <input type="email" id="contact-email" name="email" required maxlength="150">
-          <small class="email-validation-error" style="color: red; display: none;">Por favor, introduce un email con formato válido.</small>
-        </div>
-        <div class="form-group">
-          <label for="contact-subject">Asunto:</label> 
-          <input type="text" id="contact-subject" name="subject" required maxlength="150">
-        </div>
-        <div class="form-group">
-          <label for="contact-message">Tu Mensaje:</label>
-          <textarea id="contact-message" name="message" rows="6" required maxlength="2000"></textarea>
-          <small class="char-counter"><span id="message-char-count">0</span> / 2000 caracteres</small>
-        </div>
-        <input type="hidden" name="_subject" value="Nuevo Mensaje de Contacto desde tu Web!">
-        <input type="hidden" name="_template" value="box">
-        <button type="submit" class="submit-contact-btn">Enviar Mensaje</button>
-      </form>
-    </div>
-  </div>
-
-  <script>
-    const allProducts = [
-      { nombre: "Base", imagen: "Mat.jpeg", precio: 150, category: "Base" },
-      { nombre: "Corrector", imagen: "Hid.jpeg", precio: 100, category: "Corrector" },
-      { nombre: "Esponjas", imagen: "Bob.jpeg", precio: 50, category: "Esponjas" },
-      { nombre: "Brochas", imagen: "Bro.jpeg", precio: 200, category: "Brochas" },
-      { nombre: "Iluminador", imagen: "Nu.jpeg", precio: 130, category: "Iluminador" },
-      { nombre: "Blush", imagen: "images.jpeg", precio: 90, category: "Blush" },
-      // You can add more products here
-      { nombre: "Base Líquida HD", imagen: "Mat.jpeg", precio: 180, category: "Base" },
-      { nombre: "Corrector de Ojeras", imagen: "Hid.jpeg", precio: 120, category: "Corrector" },
-    ];
-
-    let currentProducts = []; // This will hold the products to display (all or filtered)
-    let indiceActual = 0;
-    const carrito = [];
-
-    function mostrarInicio() {
-      document.getElementById('inicio').style.display = 'block';
-      document.getElementById('productos').style.display = 'none';
-      document.getElementById('carrito').style.display = 'none';
-    }
-
-    function mostrarProductos() {
-      currentProducts = [...allProducts]; // Show all products
-      indiceActual = 0;
-      document.getElementById('inicio').style.display = 'none';
-      document.getElementById('productos').style.display = 'flex';
-      document.getElementById('carrito').style.display = 'block';
-      mostrarProducto(indiceActual);
-      updateNavigationButtons();
-    }
-
-    function mostrarProductosPorCategoria(category) {
-      currentProducts = allProducts.filter(product => product.category === category);
-      indiceActual = 0;
-      document.getElementById('inicio').style.display = 'none';
-      document.getElementById('productos').style.display = 'flex';
-      document.getElementById('carrito').style.display = 'block';
-      if (currentProducts.length > 0) {
-        mostrarProducto(indiceActual);
-      } else {
-        document.getElementById('productoActual').innerHTML = '<p>No hay productos en esta categoría.</p>';
-      }
-      updateNavigationButtons();
-    }
-
-    function mostrarProducto(indice) {
-      const contenedor = document.getElementById('productoActual');
-      const producto = currentProducts[indice]; // Use currentProducts array
-      contenedor.innerHTML = `
-        <img src="${producto.imagen}" alt="${producto.nombre}">
-        <p><strong>${producto.nombre}</strong> - $${producto.precio}</p>
-        <div class="producto-buttons">
-          <button onclick="agregarAlCarrito(${allProducts.indexOf(producto)})">Agregar al carrito</button>
-          <a href="detalles.html" target="_blank">
-            <button>Detalles</button>
-          </a>
-        </div>
-      `;
-    }
-
-    function productoAnterior() {
-      if (indiceActual > 0) {
-        indiceActual--;
-        mostrarProducto(indiceActual);
-        updateNavigationButtons();
-      }
-    }
-
-    function productoSiguiente() {
-      if (indiceActual < currentProducts.length - 1) { // Use currentProducts array
-        indiceActual++;
-        mostrarProducto(indiceActual);
-        updateNavigationButtons();
-      }
-    }
-
-    function updateNavigationButtons() {
-      const prevButton = document.querySelector('.botones-navegacion button:first-child');
-      const nextButton = document.querySelector('.botones-navegacion button:last-child');
-
-      prevButton.disabled = indiceActual === 0;
-      nextButton.disabled = indiceActual === currentProducts.length - 1 || currentProducts.length === 0;
-    }
-
-    function agregarAlCarrito(indice) {
-      carrito.push(allProducts[indice]); // Add from allProducts to ensure correct index
-      actualizarCarrito();
-    }
-
-    function actualizarCarrito() {
-      const lista = document.getElementById('listaCarrito');
-      const total = document.getElementById('total');
-      lista.innerHTML = '';
-      let suma = 0;
-      carrito.forEach((producto) => {
-        suma += producto.precio;
-        const li = document.createElement('li');
-        li.textContent = `${producto.nombre} - $${producto.precio}`;
-        lista.appendChild(li);
-      });
-      total.textContent = suma;
-    }
-
-    function borrarCuenta() {
-      if (confirm("¿Estás segura de que deseas borrar tu cuenta? Esto eliminará todo tu carrito.")) {
-        carrito.length = 0;
-        actualizarCarrito();
-        alert("Tu cuenta y carrito han sido eliminados. ¡Gracias por visitarnos!");
-      }
-    }
-
-    // 🔻 JS del modal de contacto
-    const openBtn = document.getElementById('open-contact-form-btn');
-    const closeBtn = document.getElementById('close-contact-modal-btn');
-    const modal = document.getElementById('contact-form-modal');
-    const messageInput = document.getElementById('contact-message');
-    const charCount = document.getElementById('message-char-count');
-    const contactEmailInput = document.getElementById('contact-email');
-    const emailValidationError = document.querySelector('.email-validation-error');
-
-    openBtn.addEventListener('click', () => modal.style.display = 'block');
-    closeBtn.addEventListener('click', () => modal.style.display = 'none');
-    window.addEventListener('click', (e) => {
-      if (e.target === modal) modal.style.display = 'none';
-    });
-    messageInput.addEventListener('input', () => {
-      charCount.textContent = messageInput.value.length;
-    });
-
-    // Basic email validation
-    contactEmailInput.addEventListener('input', () => {
-      if (contactEmailInput.value.includes('@') && contactEmailInput.value.includes('.')) {
-        emailValidationError.style.display = 'none';
-      } else {
-        emailValidationError.style.display = 'block';
-      }
-    });
-
-    // Prevent form submission if email is invalid
-    document.getElementById('contact-form').addEventListener('submit', function(event) {
-      if (!contactEmailInput.value.includes('@') || !contactEmailInput.value.includes('.')) {
-        event.preventDefault();
-        emailValidationError.style.display = 'block';
-        alert('Por favor, introduce un email válido para enviar el mensaje.');
-      }
-    });
-
-    mostrarInicio();
-  </script>
+    <div id="contact-form-modal" class="contact-modal">
+        <div class="contact-modal-content">
+            <span class="close-contact-modal" id="close-contact-modal-btn">×</span>
+            <h2>Contáctame</h2>
+            <p>Envíame un mensaje y te responderé lo antes posible.</p>
+            <form id="contact-form" target="_blank" action="https://formsubmit.co/marycarmenvazquez2008@gmail.com" method="POST">
+                <div class="form-group">
+                    <label for="contact-name">Nombre Completo:</label>
+                    <input type="text" id="contact-name" name="name" required maxlength="100">
+                </div>
+                <div class="form-group">
+                    <label for="contact-email">Tu Email:</label>
+                    <input type="email" id="contact-email" name="email" required maxlength="150">
+                    <small class="email-validation-error" style="color: red; display: none;">Por favor, introduce un email con formato válido.</small>
+                </div>
+                <div class="form-group">
+                    <label for="contact-subject">Asunto:</label>
+                    <input type="text" id="contact-subject" name="subject" required maxlength="150">
+                </div>
+                <div class="form-group">
+                    <label for="contact-message">Tu Mensaje:</label>
+                    <textarea id="contact-message" name="message" rows="6" required maxlength="2000"></textarea>
+                    <small class="char-counter"><span id="message-char-count">0</span> / 2000 caracteres</small>
+                </div>
+                <input type="hidden" name="_subject" value="Nuevo Mensaje de Contacto desde tu Web!">
+                <input type="hidden" name="_template" value="box">
+                <button type="submit" class="submit-contact-btn">Enviar Mensaje</button>
+            </form>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
 </body>
 </html>
