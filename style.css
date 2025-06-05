@@ -39,7 +39,7 @@ nav ul li ul {
     top: 100%;
     left: 0;
     min-width: 120px;
-    z-index: 1;
+    z-index: 1001;
     text-align: left;
 }
 
@@ -237,24 +237,32 @@ nav ul li ul li a:hover {
     text-align: right;
 }
 
-/* --- ESTILOS DEL CARRUSEL --- */
 .carousel-container {
     max-width: 600px;
     position: relative;
     margin: auto;
-    margin-bottom: 20px;
     border: 2px solid #db7093;
     border-radius: 10px;
-    overflow: hidden; /* Oculta partes de la imagen que se salgan del borde redondeado */
+    overflow: hidden;
+    display: flex;
 }
 
 .carousel-slide {
-    display: none;
+    min-width: 100%;
+    box-sizing: border-box;
+    transition: transform 0.7s ease-in-out;
 }
 
 .carousel-slide img {
     width: 100%;
     vertical-align: middle;
+}
+
+.carousel-nav {
+    max-width: 600px;
+    margin: -10px auto 20px auto;
+    position: relative;
+    height: 0;
 }
 
 .prev, .next {
@@ -271,6 +279,7 @@ nav ul li ul li a:hover {
     border-radius: 0 3px 3px 0;
     user-select: none;
     background-color: rgba(219, 112, 147, 0.5);
+    z-index: 2;
 }
 
 .next {
@@ -280,14 +289,4 @@ nav ul li ul li a:hover {
 
 .prev:hover, .next:hover {
     background-color: rgba(219, 112, 147, 1);
-}
-
-.fade {
-    animation-name: fade;
-    animation-duration: 1.5s;
-}
-
-@keyframes fade {
-    from {opacity: .4}
-    to {opacity: 1}
 }

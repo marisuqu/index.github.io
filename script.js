@@ -13,41 +13,47 @@ let currentProducts = [];
 let indiceActual = 0;
 const carrito = [];
 
-// --- LÓGICA DEL CARRUSEL ---
-let slideIndex = 0;
+let slideIndex = 1;
 let carouselTimer;
+const slides = document.getElementsByClassName("carousel-slide");
 
-function showSlides() {
-    let i;
-    let slides = document.getElementsByClassName("carousel-slide");
-    for (i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
+function updateCarouselView() {
+    const offset = -(slideIndex - 1) * 100;
+    for (let i = 0; i < slides.length; i++) {
+        slides[i].style.transform = `translateX(${offset}%)`;
     }
-    slideIndex++;
-    if (slideIndex > slides.length) {slideIndex = 1}
-    slides[slideIndex-1].style.display = "block";
-    
-    // Cambia la imagen cada 4 segundos
-    carouselTimer = setTimeout(showSlides, 4000); 
 }
 
 function plusSlides(n) {
-    // Limpia el temporizador para evitar cambios dobles
-    clearTimeout(carouselTimer); 
-    // Muestra la diapositiva correcta
-    slideIndex += n -1;
-    showSlides();
+    slideIndex += n;
+    if (slideIndex > slides.length) {
+        slideIndex = 1;
+    }
+    if (slideIndex < 1) {
+        slideIndex = slides.length;
+    }
+    updateCarouselView();
+    startCarousel();
 }
-// --- FIN DE LÓGICA DEL CARRUSEL ---
+
+function startCarousel() {
+    clearInterval(carouselTimer);
+    carouselTimer = setInterval(() => {
+        slideIndex++;
+        if (slideIndex > slides.length) {
+            slideIndex = 1;
+        }
+        updateCarouselView();
+    }, 4000);
+}
 
 function mostrarInicio() {
     document.getElementById('inicio').style.display = 'block';
     document.getElementById('productos').style.display = 'none';
     
-    // Inicia o reinicia el carrusel
-    clearTimeout(carouselTimer);
-    slideIndex = 0;
-    showSlides();
+    slideIndex = 1;
+    updateCarouselView();
+    startCarousel();
 }
 
 function mostrarProductos() {
@@ -57,8 +63,7 @@ function mostrarProductos() {
     document.getElementById('productos').style.display = 'flex';
     mostrarProducto(indiceActual);
     updateNavigationButtons();
-    // Detiene el carrusel cuando no está en la página de inicio
-    clearTimeout(carouselTimer);
+    clearInterval(carouselTimer);
 }
 
 function mostrarProductosPorCategoria(category) {
@@ -72,8 +77,7 @@ function mostrarProductosPorCategoria(category) {
         document.getElementById('productoActual').innerHTML = '<p>No hay productos en esta categoría.</p>';
     }
     updateNavigationButtons();
-    // Detiene el carrusel
-    clearTimeout(carouselTimer);
+    clearInterval(carouselTimer);
 }
 
 function mostrarProducto(indice) {
@@ -178,5 +182,4 @@ document.getElementById('contact-form').addEventListener('submit', function (eve
     }
 });
 
-// Llama a la función para mostrar la página de inicio (y el carrusel) cuando se carga la página
 mostrarInicio();
