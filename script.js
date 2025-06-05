@@ -16,7 +16,7 @@ const carrito = [];
 function mostrarInicio() {
     document.getElementById('inicio').style.display = 'block';
     document.getElementById('productos').style.display = 'none';
-    document.getElementById('carrito').style.display = 'none';
+    // La línea que ocultaba el carrito ha sido eliminada
 }
 
 function mostrarProductos() {
@@ -24,7 +24,7 @@ function mostrarProductos() {
     indiceActual = 0;
     document.getElementById('inicio').style.display = 'none';
     document.getElementById('productos').style.display = 'flex';
-    document.getElementById('carrito').style.display = 'block';
+    // La línea que mostraba el carrito ha sido eliminada
     mostrarProducto(indiceActual);
     updateNavigationButtons();
 }
@@ -34,7 +34,7 @@ function mostrarProductosPorCategoria(category) {
     indiceActual = 0;
     document.getElementById('inicio').style.display = 'none';
     document.getElementById('productos').style.display = 'flex';
-    document.getElementById('carrito').style.display = 'block';
+    // La línea que mostraba el carrito ha sido eliminada
     if (currentProducts.length > 0) {
         mostrarProducto(indiceActual);
     } else {

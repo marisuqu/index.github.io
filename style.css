@@ -4,27 +4,33 @@ body {
     margin: 0;
     padding: 0;
 }
+
 header {
     background-color: #db7093;
     color: white;
     padding: 1em;
     text-align: center;
 }
+
 nav {
     background-color: #f4a7b9;
     padding: 1em;
 }
+
 nav ul {
     list-style: none;
     padding: 0;
     margin: 0;
     text-align: center;
 }
+
 nav ul li {
     display: inline-block;
     margin-right: 10px;
     position: relative;
+    vertical-align: top; /* ARREGLO: Alinea los botones del menú */
 }
+
 nav ul li ul {
     display: none;
     position: absolute;
@@ -36,9 +42,11 @@ nav ul li ul {
     z-index: 1;
     text-align: left;
 }
+
 nav ul li:hover ul {
     display: block;
 }
+
 nav a {
     text-decoration: none;
     color: #fff;
@@ -46,30 +54,37 @@ nav a {
     padding: 5px 10px;
     display: block;
 }
+
 nav ul li ul li {
     display: block;
     margin-right: 0;
 }
+
 nav ul li ul li a {
     color: #db7093;
     padding: 5px 0;
 }
+
 nav ul li ul li a:hover {
     background-color: #f4a7b9;
 }
+
 .seccion {
     padding: 2em;
     text-align: center;
 }
+
 #inicio img {
     max-width: 300px;
     border-radius: 15px;
 }
+
 .productos {
     display: none;
     flex-direction: column;
     align-items: center;
 }
+
 .producto {
     margin: 20px auto;
     border: 2px solid #db7093;
@@ -78,16 +93,25 @@ nav ul li ul li a:hover {
     max-width: 300px;
     background-color: #fff;
 }
+
 .producto img {
     max-width: 100%;
     border-radius: 10px;
 }
+
 .producto-buttons {
     margin-top: 10px;
 }
+
+/* ARREGLO: Quita el subrayado del enlace que contiene el botón "Detalles" */
+.producto-buttons a {
+    text-decoration: none;
+}
+
 .botones-navegacion {
     margin-top: 20px;
 }
+
 .botones-navegacion button,
 .producto button,
 #carrito button {
@@ -100,23 +124,36 @@ nav ul li ul li a:hover {
     border-radius: 5px;
     font-weight: bold;
 }
+
 .botones-navegacion button:hover,
 .producto button:hover,
 #carrito button:hover {
     background-color: #c06085;
 }
+
+/* ARREGLO: El carrito ahora es visible siempre */
 #carrito {
     background-color: #ffe4e1;
-    border-top: 2px solid #db7093;
-    display: none;
+    border-bottom: 2px solid #db7093;
+    padding: 1em 2em; /* Ajusta el padding para que se vea mejor */
 }
+
 #carrito ul {
     list-style: none;
     padding: 0;
+    margin: 10px 0;
 }
+
 #carrito li {
     padding: 5px;
+    display: inline-block; /* Muestra los items del carrito en línea */
+    margin-right: 15px;
 }
+
+#carrito button {
+    margin-top: 10px;
+}
+
 .contact-form-trigger-btn {
     position: fixed;
     bottom: 20px;
@@ -131,6 +168,7 @@ nav ul li ul li a:hover {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     z-index: 1000;
 }
+
 .contact-modal {
     display: none;
     position: fixed;
@@ -142,6 +180,7 @@ nav ul li ul li a:hover {
     overflow: auto;
     background-color: rgba(0, 0, 0, 0.5);
 }
+
 .contact-modal-content {
     background-color: #fff;
     margin: 5% auto;
@@ -151,6 +190,7 @@ nav ul li ul li a:hover {
     max-width: 500px;
     position: relative;
 }
+
 .close-contact-modal {
     color: #aaa;
     float: right;
@@ -158,17 +198,21 @@ nav ul li ul li a:hover {
     font-weight: bold;
     cursor: pointer;
 }
+
 .close-contact-modal:hover {
     color: #000;
 }
+
 .form-group {
     margin-bottom: 15px;
     text-align: left;
 }
+
 .form-group label {
     display: block;
     margin-bottom: 5px;
 }
+
 .form-group input,
 .form-group textarea {
     width: 100%;
@@ -177,6 +221,7 @@ nav ul li ul li a:hover {
     border: 1px solid #ccc;
     box-sizing: border-box;
 }
+
 .submit-contact-btn {
     background-color: #db7093;
     color: white;
@@ -187,9 +232,11 @@ nav ul li ul li a:hover {
     cursor: pointer;
     width: 100%;
 }
+
 .submit-contact-btn:hover {
     background-color: #c06085;
 }
+
 .char-counter {
     font-size: 12px;
     color: gray;

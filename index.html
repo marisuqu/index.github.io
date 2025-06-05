@@ -28,6 +28,14 @@
         </ul>
     </nav>
 
+    <!-- El carrito ahora está aquí, debajo del menú -->
+    <section id="carrito" class="seccion">
+        <h3>Carrito de Compras</h3>
+        <ul id="listaCarrito"></ul>
+        <p><strong>Total: $<span id="total">0</span></strong></p>
+        <button onclick="borrarCuenta()">Borrar Cuenta</button>
+    </section>
+
     <section id="inicio" class="seccion">
         <h2>Bienvenida a nuestra tienda de maquillaje</h2>
         <p>Descubre los mejores productos para resaltar tu belleza. Ofrecemos bases, brochas, iluminadores y mucho más. Haz clic en "Productos" para ver el catálogo.</p>
@@ -40,13 +48,6 @@
             <button onclick="productoAnterior()">Anterior</button>
             <button onclick="productoSiguiente()">Siguiente</button>
         </div>
-    </section>
-
-    <section id="carrito" class="seccion">
-        <h3>Carrito de Compras</h3>
-        <ul id="listaCarrito"></ul>
-        <p><strong>Total: $<span id="total">0</span></strong></p>
-        <button onclick="borrarCuenta()">Borrar Cuenta</button>
     </section>
 
     <button id="open-contact-form-btn" class="contact-form-trigger-btn">
