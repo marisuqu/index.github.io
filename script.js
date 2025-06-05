@@ -185,3 +185,30 @@ document.getElementById('contact-form').addEventListener('submit', function (eve
 });
 
 mostrarInicio();
+// ... (todo tu código anterior se mantiene igual) ...
+
+document.getElementById('contact-form').addEventListener('submit', function (event) {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(contactEmailInput.value)) {
+        event.preventDefault();
+        emailValidationError.style.display = 'block';
+        alert('Por favor, introduce un email válido para enviar el mensaje.');
+    }
+});
+
+// NUEVA LÓGICA PARA EL ENLACE DE FINALIZAR COMPRA
+const checkoutLink = document.getElementById('checkout-link');
+checkoutLink.addEventListener('click', function(event) {
+    event.preventDefault();
+
+    if (carrito.length === 0) {
+        alert("El carrito está vacío. Agrega productos antes de finalizar la compra.");
+        return;
+    }
+
+    localStorage.setItem('shoppingCart', JSON.stringify(carrito));
+    window.location.href = 'checkout.html';
+});
+
+
+mostrarInicio();

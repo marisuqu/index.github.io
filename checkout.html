@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Finalizar Compra - Tienda de Maquillaje</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Tienda de Maquillaje</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="index.html">Productos</a></li>
+            <li><a href="checkout.html">Finalizar Compra</a></li>
+        </ul>
+    </nav>
+
+    <section class="seccion">
+        <div class="ticket-container">
+            <h2>Ticket de Compra</h2>
+            <ul id="ticket-list">
+            </ul>
+            <p class="ticket-total"><strong>Total: $<span id="ticket-total">0</span></strong></p>
+            <p class="ticket-thanks">¡Gracias por su compra!</p>
+        </div>
+        <div class="ticket-actions">
+            <button id="print-button">Imprimir Ticket</button>
+            <button id="return-button">Vaciar Carrito y Volver</button>
+        </div>
+    </section>
+
+    <script src="checkout.js"></script>
+</body>
+</html>

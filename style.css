@@ -289,3 +289,89 @@ nav ul li ul li a:hover {
 .prev:hover, .next:hover {
     background-color: rgba(219, 112, 147, 1);
 }
+.ticket-container {
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 2px dashed #db7093;
+    background-color: #fff;
+    text-align: left;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.ticket-container h2 {
+    text-align: center;
+    color: #db7093;
+    border-bottom: 1px solid #f4a7b9;
+    padding-bottom: 10px;
+    margin-top: 0;
+}
+
+.ticket-container ul {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+.ticket-container li {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+}
+
+.ticket-total {
+    font-size: 1.2em;
+    text-align: right;
+    border-top: 1px solid #f4a7b9;
+    padding-top: 10px;
+    margin-top: 20px;
+}
+
+.ticket-thanks {
+    text-align: center;
+    margin-top: 30px;
+    color: #c06085;
+}
+
+.ticket-actions {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.ticket-actions button {
+    background-color: #db7093;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.ticket-actions button:hover {
+    background-color: #c06085;
+}
+
+/* ESTILOS PARA LA IMPRESIÓN DEL TICKET */
+@media print {
+    body * {
+        visibility: hidden;
+    }
+    .ticket-container, .ticket-container * {
+        visibility: visible;
+    }
+    .ticket-container {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        max-width: 100%;
+        border: none;
+        margin: 0;
+        padding: 0;
+    }
+    .ticket-actions {
+        display: none;
+    }
+}
